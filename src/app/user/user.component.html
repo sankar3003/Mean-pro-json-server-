@@ -1,0 +1,70 @@
+<div class="col-md-4 offset-md-4 col-12">
+  <form  (ngSubmit)="submit(userForm)"  #userForm="ngForm" [appMatchPassword]="['password', 'confirmPassword']" novalidate>
+ <div class="form-group">
+  <label for="">Name <span style="color: red;">**</span>
+  </label>
+  
+  <input type="text" class="form-control" name="name"  minlength="4" [(ngModel)]="form.name" #name="ngModel" required>
+  <span *ngIf="(name.invalid && name.touched)" style="color:red">Name is requiered</span>
+ </div>
+ <div class="form-group">
+  <label for="">Email <span style="color: red;">**</span></label>
+  <input type="email" class="form-control" name="email"   [(ngModel)]="form.email" #email="ngModel" required email>
+  <span *ngIf="(email.invalid && email.touched) "  style="color:red">Email is requiered</span>
+  
+ </div>
+ <div class="form-group">
+  <label>Password  <span style="color: red;">**</span></label>
+  <input type="password" class="form-control" [(ngModel)]="form.password" name="password"
+      #password="ngModel" appPasswordPattern required>
+  <span class="text-danger"
+      *ngIf="(password.touched ) && password.errors?.required">
+      Password is required
+  </span>
+  <span class="text-danger" *ngIf="password.touched && password.errors?.invalidPassword">
+      Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+      letter and 1 number
+  </span>
+</div>
+<div class="form-group">
+  <label>Confirm Password  <span style="color: red;">**</span></label>
+  <input type="password" class="form-control" [(ngModel)]="form.confirmPassword"
+      name="confirmPassword" #confirmPassword="ngModel" required>
+  <span class="text-danger"
+      *ngIf="(confirmPassword.touched ) && confirmPassword.errors?.required">
+      Confirm Password is required
+  </span>
+  <span class="text-danger"
+      *ngIf="confirmPassword.touched && confirmPassword.errors?.passwordMismatch">
+      Passwords doesnot match
+  </span>
+</div>
+<small> [<span style="color:red"> **</span> mentioned fields are required] </small><br>
+
+<input type="submit" value="submit" *ngIf="!id"> &nbsp;
+<input type="submit" value="Update"  *ngIf="id"> &nbsp;
+<input type="reset" value="Reset" (click)="userForm.reset()">
+  </form>
+</div>
+
+<table>
+<tr>
+  <thead>
+ 
+    <td>Name</td>
+    <td>Edit</td>
+
+</thead>
+</tr>
+<tr>
+  <tbody *ngFor="let row of users">
+    <td *ngIf="!users"> No data fornd</td>
+    <td>{{row.name}}</td>
+  
+       <td> <span (click)="view(row.id)">Edit</span>
+        <span (click)="deleteval(row.id)">Delete</span></td>
+  
+    </tbody>
+</tr>
+
+</table>

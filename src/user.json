@@ -1,0 +1,18 @@
+{
+  "userdetails": [
+    {
+      "name": "sadfsaf",
+      "email": "ssQfsdf@sdf",
+      "password": "1",
+      "confirmPassword": "1",
+      "id": 2
+    },
+    {
+      "name": "sdfdf",
+      "email": "fsd@sdf",
+      "password": "1",
+      "confirmPassword": "1",
+      "id": 3
+    }
+  ]
+}

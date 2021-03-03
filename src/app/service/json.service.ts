@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class JsonService {
 
-_url="http://localhost:2000"
+_url="http://localhost:4000/apiUser"
 
   constructor(
     private http:HttpClient
@@ -20,7 +20,7 @@ return this.http.get(`${this._url}/userdetails`)
   post(form):Observable<any>{
     var formdata=form;
     //formdata.value="sdfsdf";
-  return  this.http.post(`${this._url}/userdetails`,formdata)
+  return  this.http.post(`${this._url}/create`,formdata)
   }
   update(form,id):Observable<any>{
     var formdata=form;

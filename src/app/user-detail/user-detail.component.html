@@ -71,7 +71,7 @@
 	</div>
  
 	<p class="actions">
-		<a (click)="addPet()">Add Another Pet</a>
+		<a (click)=" addPet()">Add Another Pet</a>
 	</p>
  
 	<!--
@@ -87,3 +87,12 @@
 </form>
 
 <button type="button" (click)="getData()">Get Data</button>
+
+
+<h2> Check box</h2>
+<form #sForm="ngForm" (ngSubmit)="sForm.valid && saveSkill(sForm)">
+<select  [(ngModel)]="obj.name" #name="ngModel" required [ngModelOptions]="{standalone:true}">
+<option *ngFor="let row of skills"  [value]="row.skill" >{{row.skill}}</option>
+
+</select>
+<input type="submit" value="Submit"></form>

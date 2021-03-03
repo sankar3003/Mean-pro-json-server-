@@ -1,15 +1,16 @@
 const express = require('express');
 const app = express();
-const employeeRoute = express.Router();
+const userRoute = express.Router();
 
 // Employee model
-let Employee = require('../models/Employee');
+let User = require('../models/User');
 // console.log("Employee" , Employee);
 
 // Add Employee
-employeeRoute.route('/create').post((req, res, next) => {
-  Employee.create(req.body, (error, data) => {
+userRoute.route('/create').post((req, res, next) => {
+  User.create(req.body, (error, data) => {
     if (error) {
+        
       return next(error)
     } else {
       res.json(data)
@@ -18,9 +19,9 @@ employeeRoute.route('/create').post((req, res, next) => {
 });
 
 // Get All Employees
-employeeRoute.route('/').get((req, res) => {
+userRoute.route('/').get((req, res) => {
 
-  Employee.find((error, data) => {
+  User.find((error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -30,8 +31,8 @@ employeeRoute.route('/').get((req, res) => {
 })
 
 // Get single employee
-employeeRoute.route('/read/:id').get((req, res) => {
-  Employee.findById(req.params.id, (error, data) => {
+userRoute.route('/read/:id').get((req, res) => {
+  User.findById(req.params.id, (error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -42,8 +43,8 @@ employeeRoute.route('/read/:id').get((req, res) => {
 
 
 // Update employee
-employeeRoute.route('/update/:id').put((req, res, next) => {
-  Employee.findByIdAndUpdate(req.params.id, {
+userRoute.route('/update/:id').put((req, res, next) => {
+  User.findByIdAndUpdate(req.params.id, {
     $set: req.body
   }, (error, data) => { 
     if (error) {
@@ -57,8 +58,8 @@ employeeRoute.route('/update/:id').put((req, res, next) => {
 })
 
 // Delete employee
-employeeRoute.route('/delete/:id').delete((req, res, next) => {
-  Employee.findOneAndRemove(req.params.id, (error, data) => {
+userRoute.route('/delete/:id').delete((req, res, next) => {
+  User.findOneAndRemove(req.params.id, (error, data) => {
     if (error) {
       return next(error);
     } else {
@@ -69,4 +70,4 @@ employeeRoute.route('/delete/:id').delete((req, res, next) => {
   })
 })
 
-module.exports = employeeRoute;
+module.exports = userRoute;

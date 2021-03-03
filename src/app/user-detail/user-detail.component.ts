@@ -1,9 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
 
-import { JsonService } from '../service/json.service';
 interface Pet {
 	id: any;
 	type: string;
@@ -20,14 +17,20 @@ export class UserDetailComponent implements OnInit {
 
 api="http://localhost:2000/pets";
 
-	public form: {
+userApi="http://localhost:2500/skills";
+
+obj:any={}	
+
+public form: {
 		pets: Pet[];
 	};
+	skills: { id: number; skill: string; }[];
  
 
 	// I initialize the app component.
 	constructor(
-    private http:HttpClient 
+	private http:HttpClient ,
+	
   ) {
  
 		this.form = {
@@ -39,6 +42,36 @@ api="http://localhost:2000/pets";
  
 	}
   ngOnInit(): void {
+
+this.skills=[
+	{
+		id:1,
+		skill:"php"
+	},
+	{
+		id:1,
+		skill:"js"
+	},
+	{
+		id:1,
+		skill:"Html"
+	},
+]
+
+	var myObj, i, j, x = "";
+	myObj = {
+	   "name":"John",
+	   "age":30,
+	   "cars": [
+	 	{"name":"Ford", "models":["Fiesta", "Focus", "Mustang"]},
+	 	{"name":"BMW", "models":["320", "X3", "X5"]},
+	 	{"name":"Fiat", "models":["500", "Panda"] }
+	   ]
+	 };
+
+
+console.log("obj" , myObj);
+
 
   }
  
@@ -63,7 +96,7 @@ api="http://localhost:2000/pets";
 		});
  
 	}
- 
+
  
 	// I process the form-model.
 	public processForm( form: any ) {
@@ -101,5 +134,12 @@ this.form.pets= res;
  
 		this.form.pets.splice( index, 1 );
  
+	}
+
+	saveSkill(form){
+		console.log("form" ,form)
+		this.http.post(`${this.userApi}`,this.obj).subscribe(res=>{
+			console.log(res);
+		})
 	}
 }

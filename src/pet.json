@@ -9,10 +9,10 @@
     },
     {
       "id": 2,
-      "type": "Dog",
+      "type": "Cat",
       "name": "sf",
       "age": "34",
-      "isPastOn": false
+      "isPastOn": true
     },
     {
       "id": "2021-01-11T08:02:11.837Z",

@@ -4,13 +4,14 @@
   <label for="">Name <span style="color: red;">**</span>
   </label>
   
-  <input type="text" class="form-control" name="name"  minlength="4" [(ngModel)]="form.name" #name="ngModel" required>
+  <input type="text" class="form-control" name="name"  minlength="2" [(ngModel)]="form.name" #name="ngModel" required>
   <span *ngIf="(name.invalid && name.touched)" style="color:red">Name is requiered</span>
  </div>
  <div class="form-group">
   <label for="">Email <span style="color: red;">**</span></label>
-  <input type="email" class="form-control" name="email"   [(ngModel)]="form.email" #email="ngModel" required email>
-  <span *ngIf="(email.invalid && email.touched) "  style="color:red">Email is requiered</span>
+  <input type="email" class="form-control" name="email"   [(ngModel)]="form.email" #email="ngModel" required email pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+  <span *ngIf="(email.errors?.required && email.touched) "  style="color:red">Email is requiered.</span>
+  <span *ngIf="(email.errors?.pattern) "  style="color:red">Invalid Email Format.</span>
   
  </div>
  <div class="form-group">
@@ -40,31 +41,43 @@
   </span>
 </div>
 <small> [<span style="color:red"> **</span> mentioned fields are required] </small><br>
-
-<input type="submit" value="submit" *ngIf="!id"> &nbsp;
-<input type="submit" value="Update"  *ngIf="id"> &nbsp;
-<input type="reset" value="Reset" (click)="userForm.reset()">
-  </form>
+<div>
+  <input type="submit" value="submit" *ngIf="!id"> &nbsp;
+  <input type="submit" value="Update"  *ngIf="id"> &nbsp;
+  <input type="reset" value="Reset" (click)="userForm.reset()">
 </div>
 
-<table>
-<tr>
-  <thead>
+  </form>
+</div>
+<br>
+<br>
+<div class="col-12 col-md-12 ">
+  <div class="row">
+    <table class="table table-bordered table-hover col-12 col-md-12 m-2
+">
+  <thead class="table-success text-center">
+    <tr>
+      <th scope="col">User ID</th>
+      <th scope="col">Name</th>
+  
+      <th scope="col center">Update</th>
+    </tr>
+  </thead> 
+  <tbody> 
+    <tr *ngFor="let user of users; let i = index">
+      <th scope="row">{{user._id}}</th>
+      <td>{{user.name}}</td>
  
-    <td>Name</td>
-    <td>Edit</td>
-
-</thead>
-</tr>
-<tr>
-  <tbody *ngFor="let row of users">
-    <td *ngIf="!users"> No data fornd</td>
-    <td>{{row.name}}</td>
-  
-       <td> <span (click)="view(row.id)">Edit</span>
-        <span (click)="deleteval(row.id)">Delete</span></td>
-  
-    </tbody>
-</tr>
-
+      <td class="text-center edit-block">
+        <span class="edit" (click)="view(user._id)">
+          <button type="button" class="btn btn-success btn-sm">Edit</button>
+        </span>
+        <span class="delete" (click)="deleteval(user._id)">
+          <button type="button" class="btn btn-danger btn-sm">Delete</button>
+        </span>
+      </td>
+    </tr>
+  </tbody>
 </table>
+  </div>
+</div>

@@ -3,15 +3,14 @@ import { FormGroup } from '@angular/forms';
 
 import { JsonService } from '../service/json.service';
 import { ToastrService } from 'ngx-toastr';
-import { deepEqual } from 'assert';
 import { User } from '../model/user';
+import { ApiService } from '../service/api.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-
 form:User={
   id:null,
   confirmPassword: null,
@@ -25,6 +24,8 @@ form:User={
 
   constructor(
     private jsonService:JsonService,
+private apiService: ApiService,
+
     private toastr: ToastrService
   ) { }
 
@@ -33,7 +34,7 @@ form:User={
     this.getUsers()
   }
   getUsers(){
-this.jsonService.get().subscribe(res=>{
+this.apiService.get().subscribe(res=>{
   console.log(res);
   this.users= res;
 
@@ -54,9 +55,10 @@ if(form.invalid){
 else{
 
 if(!this.id){
+  
  let data:User= form.value;
  
-  this.jsonService.post(data).subscribe(res=>{
+  this.apiService.createUser(data).subscribe(res=>{
     console.log(res);
     form.reset();
     this.getUsers();
@@ -68,9 +70,10 @@ if(!this.id){
   )
 }
 else if(this.id){
+  
  let data:User = form.value;
  data.id= this.id;
-  this.jsonService.update(data,this.id).subscribe(res=>{
+  this.apiService.updateUser(data,this.id).subscribe(res=>{
     this.getUsers();
     form.reset();
     this.toastr.success('Success',`The id ${this.id} was updated`);
@@ -86,10 +89,10 @@ else if(this.id){
 
 
   view(id){
-    
-this.jsonService.getById(id).subscribe((res:any)=>{
+    this.id=id;
+this.apiService.getById(id).subscribe((res:any)=>{
   this.form=res;
-   this.id=res.id;
+   
 })
   }
   deleteval(id){
@@ -97,7 +100,7 @@ this.jsonService.getById(id).subscribe((res:any)=>{
 
   if(delet){
     
-    this.jsonService.deleteById(id).subscribe(res=>{
+    this.apiService.deleteUser(id).subscribe(res=>{
 
       this.getUsers();
       this.toastr.success('Success',`The id ${id} was Deleted`);

@@ -38,3 +38,55 @@ etst
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+---
+
+
+  1.express
+2.path
+3.mongoose
+4.cors
+5.body-parser
+
+6.dbconfig
+7.db connect
+8.Employee route
+9.app
+10. app use body-parser
+11. app use cors
+12. app use path
+
+13. app port 
+14. app server listen
+
+--
+Employee route file
+
+1. require express 
+2. require app
+3. require express.Router()
+4. require employee model
+6. create
+7. update 
+8. delete 
+9. edit 
+10. Export router
+
+
+---
+db config
+
+module.export objects with value of db
+
+---
+employee model
+
+1. require mongoose
+2. mongoose schema
+3. new schema
+4. export mongoose.model('name', schema name)
+
+
+
+
+

@@ -71,7 +71,7 @@ createUser(data): Observable<any> {
   }
 
   updateUser(data,id): Observable<any> {
-    alert(id)
+    
     let url = `${this.baseUri1}/update/${id}`;
     return this.http.put(url, data, { headers: this.headers }).pipe(
       catchError(this.errorMgmt)

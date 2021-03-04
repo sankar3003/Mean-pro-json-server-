@@ -23,6 +23,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { LoginComponent } from './core/login/login.component';
 import { RegisterComponent } from './core/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 
 
 
@@ -38,7 +39,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     UserDetailComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    NoPageFoundComponent
 
 
   ],

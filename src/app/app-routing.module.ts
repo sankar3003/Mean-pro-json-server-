@@ -6,6 +6,7 @@ import { EmployeeEditComponent } from './components/employee-edit/employee-edit.
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { LoginComponent } from './core/login/login.component';
 import { RegisterComponent } from './core/register/register.component';
+import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserComponent } from './user/user.component';
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'employees-list', component: EmployeeListComponent }  ,
   { path: 'edit-employee/:id', component: EmployeeEditComponent },
 
+  { path: '**', component: NoPageFoundComponent },
 
   
 

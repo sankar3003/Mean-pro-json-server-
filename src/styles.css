@@ -196,3 +196,14 @@ width: 33%;
   text-transform: lowercase;
   text-decoration: dotted;
 }
+
+
+/* flash sale navbar starts here  */
+
+.flash-sale {
+  text-align: center  !important;
+  height: 28px !important;
+  line-height: 2px !important;
+  background-color: orange !important;
+  color: red !important;
+}

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit } from '@angular/core';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+
+
+
 
 
 @Component({ 
@@ -7,16 +10,48 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit,AfterViewInit{
   title = 'mean-stack-crud-app';
-constructor(private ngxService: NgxUiLoaderService){}
+  show:boolean=false;
+  date: Date;
+  time: any;
+  setDob: any;
+constructor(private ngxService: NgxUiLoaderService,
+  private elementRef:ElementRef,
+  private changeDetect:ChangeDetectorRef
+  ){}
    ngOnInit(){
+
+    
+    // this.setDob = datePipe.transform(this.date, 'dd/MM/yyyy');
+    // this.time = this.date.getTime()
+
+    setInterval(()=>{
+      if(!this.show){
+        this.show=true;
+        this.changeDetect.detectChanges();
+   
+      
+   
+      }else{
+        this.show=false;
+        this.changeDetect.detectChanges()
+        setInterval(()=>{
+          this.date=new Date()
+        },1000)
+      }
+
+      console.log("please subcribe here")
+    },7000)
 
   //   this.ngxService.start(); // start foreground spinner of the master loader with 'default' taskId
   //   // Stop the foreground loading after 5s
   //   setTimeout(() => {
   //     this.ngxService.stop(); // stop foreground spinner of the master loader with 'default' taskId
   //   }, 2000);
+  }
+
+  ngAfterViewInit(){
   }
 }
   

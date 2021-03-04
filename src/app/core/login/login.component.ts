@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Login } from '../../model/login';
 @Component({
   selector: 'app-login',
@@ -14,7 +15,10 @@ export class LoginComponent implements OnInit {
 f:any={};
   isFocus: boolean = true;
 
-  constructor() { }
+  constructor(
+    private router:Router,
+    private elementRef:ElementRef
+  ) { }
 
   ngOnInit() {
     var modal = document.getElementById('id01');
@@ -29,6 +33,9 @@ window.onclick = function(event) {
 
   submit(){
     console.log(this.f);
+  if(this.loginForm.valid){
+this.router.navigate(['/userForm']);
+  }
   }
   reset(){
 

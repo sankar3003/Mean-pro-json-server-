@@ -1,3 +1,8 @@
+<nav *ngIf="show" class="navbar flash-sale" >
+  <a class="navbar-brand"  href="#">Flash Sale Start {{date | date :'long'}}</a>
+  <a class="navbar-brand" (click)="show=!show">&times;</a>
+</nav>
+
 <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top mb-5">
   <a class="navbar-brand" routerLink="login">CMS</a>
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">

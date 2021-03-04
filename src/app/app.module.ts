@@ -26,6 +26,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
 import { FocusDirective } from './directives/focus.directive';
+import { ForgotPasswordComponent } from './core/forgot-password/forgot-password.component';
+import { ResetrPasswordComponent } from './core/resetr-password/resetr-password.component';
 
 
  
@@ -43,7 +45,9 @@ import { FocusDirective } from './directives/focus.directive';
     RegisterComponent,
     DashboardComponent,
     NoPageFoundComponent,
-    FocusDirective
+    FocusDirective,
+    ForgotPasswordComponent,
+    ResetrPasswordComponent
 
 
   ],

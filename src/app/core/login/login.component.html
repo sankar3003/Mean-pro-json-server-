@@ -1,3 +1,35 @@
-<p>
-  login works!
-</p>
+<!-- <h2>Modal Login Form</h2> -->
+
+<div class="">
+  <button (click)="openModal()" style="width:auto;">Login</button>
+</div>
+
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" #loginForm="ngForm" (ngSubmit)="submit()">
+    <div class="imgcontainer">
+      <span (click)="loginForm.resetForm() " onclick=" document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="/assets/avatar.png" style="height:20px;width:20px" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username <small>*</small></b></label>
+      <input type="text" placeholder="Enter Username" #name="ngModel" name="uname"  [(ngModel)]="f.uname" [appFocus]="isFocus" required>
+      <span class="required" *ngIf="loginForm.submitted && name.invalid">Required</span> <br> 
+
+      <label for="psw"><b>Password <span>*</span></b></label>
+      <input type="password" placeholder="Enter Password" #password="ngModel" [(ngModel)]="f.password" name="f.password" required>
+      <span class="required" *ngIf="loginForm.submitted && password.invalid">Required</span> <br> 
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" (click)="loginForm.resetForm({})" class="cancelbtn">Reset</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>

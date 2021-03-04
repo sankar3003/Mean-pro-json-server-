@@ -87,5 +87,11 @@ employee model
 
 
 
+=============
+
+password sterngth check
+npm i angular-password-strength-meter
+
+
 
 

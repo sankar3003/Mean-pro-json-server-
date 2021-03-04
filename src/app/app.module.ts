@@ -24,9 +24,11 @@ import { LoginComponent } from './core/login/login.component';
 import { RegisterComponent } from './core/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
+import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
+import { FocusDirective } from './directives/focus.directive';
 
 
-
+ 
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    NoPageFoundComponent
+    NoPageFoundComponent,
+    FocusDirective
 
 
   ],
@@ -53,7 +56,10 @@ import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
     RouterModule,
     FormsModule,
     ToastrModule.forRoot(),
+    
     NgxUiLoaderModule,
+    PasswordStrengthMeterModule
+
 
   ], schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [ApiService,

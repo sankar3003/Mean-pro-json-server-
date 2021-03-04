@@ -52,6 +52,7 @@ export class EmployeeListComponent implements OnInit {
   }
 
   insert(val){
+  
 // console.log("val",val);
 
 var json:any={};
@@ -61,7 +62,19 @@ json.email=val.email;
 json.designation=val.designation;
 json.phoneNumber=val.phoneNumber;
 
-console.log("jisn", json)
+console.log("josn", json);
+this.apiService.updateEmployee(val._id, json)
+  .subscribe(res => {
+setTimeout(() => {
+  this.toastr.success('Success',`Updated`);
+  
+}, 1000);
+      
+    
+    
+  }, (error) => {
+    console.log(error)
+  })
   }
   ngOnDestroy(){
 // this.sub.unsubscribe()

@@ -1,3 +1,50 @@
-<p>
-  register works!
-</p>
+<!-- <h2>Modal Login Form</h2> -->
+
+<div class="">
+  <button (click)="openModal()" style="width:auto;">Sign Up</button>
+</div>
+
+
+<div id="id01" class="modal" style="overflow: scroll;">
+  
+  <form class="modal-content animate" #registerForm="ngForm" (ngSubmit)="submit()">
+    <div class="imgcontainer">
+      <span (click)="registerForm.resetForm() " onclick=" document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="/assets/avatar.png" style="height:20px;width:20px" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username <small>*</small></b></label>
+      <input type="text" placeholder="Enter Username" #name="ngModel"  name="uname"  [(ngModel)]="f.uname" [appFocus]="isFocus" required>
+      <span class="required" *ngIf="registerForm.submitted && name.invalid">Required</span> <br> 
+
+      <label for="uname"><b>Email <small>*</small></b></label>
+      <input type="text" placeholder="Enter Email" #email="ngModel" name="email" pattern="^[a-zA-Z]+([.-]?[a-zA-Z0-9]+)*@([a-zA-Z]+([.-]?[a-zA-Z]))[.]{1}[a-zA-Z]{2,}$"  [(ngModel)]="f.email" required>
+      <span *ngIf="email.errors?.required && registerForm.submitted"  class="required">Email is requiered.</span>
+      <span *ngIf="(email.errors?.pattern) && registerForm.submitted "  class="required">Invalid Email Format.</span>
+<br>
+      <label for="psw"><b>Password <span>*</span></b></label>
+      <input type="password" placeholder="Enter Password" #password="ngModel" [(ngModel)]="f.password" name="f.password"  required>
+      <span class="required" *ngIf="registerForm.submitted && password.invalid">Required</span> <br> 
+      
+      <password-strength-meter [password]="f.password"></password-strength-meter>
+<span *ngIf="f.password"><small>
+  <p style="color:darkred;">Too Weak</p>
+  <p style="color:orange;"> Weak</p>
+  <p style="color:yellowgreen;"> Strength</p>
+  <p style="color:green;"> Strengthest</p>
+</small> </span>
+
+    
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class=" container">
+      <button type="submit" class="SubmitBtn">Login</button>
+      <button type="button" (click)="registerForm.resetForm({})" class="cancelbtn">Reset</button>
+      <!-- <button class="SubmitBtn">Forgot <a >password?</a></button> -->
+    </div>
+  </form>
+</div>

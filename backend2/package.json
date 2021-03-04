@@ -1,14 +1,19 @@
 {
-  "name": "backend",
+  "name": "my-pac",
   "version": "1.0.0",
-  "description": "A MEAN Stack CRUD app for employee management",
+  "description": "node express",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "Digamber",
+  "keywords": [
+    "node",
+    "express",
+    "angular",
+    "mongoose",
+    "moongodb"
+  ],
+  "author": "sankar",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -17,8 +22,5 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.18"
-  },
-  "devDependencies": {
-    "nodemon": "^1.19.4"
   }
 }

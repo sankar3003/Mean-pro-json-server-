@@ -10,9 +10,9 @@ let Employee = require('../models/Employee');
 employeeRoute.route('/create').post((req, res, next) => {
   Employee.create(req.body, (error, data) => {
     if (error) {
-      return next(error)
+      return next(error);
     } else {
-      res.json(data)
+      res.json(data);
     }
   })
 });

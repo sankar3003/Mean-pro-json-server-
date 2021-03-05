@@ -25,7 +25,7 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
-              "node_modules/ngx-toastr/toastr.css" 
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -134,5 +134,8 @@
       }
     }
   },
-  "defaultProject": "mean-stack-crud-app"
+  "defaultProject": "mean-stack-crud-app",
+  "cli": {
+    "analytics": "b82f097f-1457-42d3-8b5b-b5ae3877ae3e"
+  }
 }

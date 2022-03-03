@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CustomerComponent } from './components/customer/customer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EmployeeCreateComponent } from './components/employee-create/employee-create.component';
 import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'userForm', component: UserComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'user-detail', component: UserDetailComponent },
+  { path: 'customer', component: CustomerComponent },
 
   { path: 'employees-list', component: EmployeeListComponent }  ,
   { path: 'edit-employee/:id', component: EmployeeEditComponent },

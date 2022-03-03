@@ -29,6 +29,7 @@ import { FocusDirective } from './directives/focus.directive';
 import { ForgotPasswordComponent } from './core/forgot-password/forgot-password.component';
 import { ResetrPasswordComponent } from './core/resetr-password/resetr-password.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CustomerComponent } from './components/customer/customer.component';
 
 
  
@@ -48,7 +49,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NoPageFoundComponent,
     FocusDirective,
     ForgotPasswordComponent,
-    ResetrPasswordComponent
+    ResetrPasswordComponent,
+    CustomerComponent
 
 
   ],

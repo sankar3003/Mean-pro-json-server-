@@ -1,0 +1,47 @@
+{
+  "customer": [
+    {
+      "name": "dsf",
+      "quantities": [
+        {
+          "qty": "fds",
+          "price": "dfsdf"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "ram",
+      "quantities": [
+        {
+          "qty": "1",
+          "price": "100"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "name": "afsdafds",
+      "quantities": [
+        {
+          "qty": "fdsf",
+          "price": "asd"
+        },
+        {
+          "qty": "fdsfsa",
+          "price": "fsdfasdf"
+        },
+        {
+          "qty": "fsdfdsaf",
+          "price": "sdfasdf"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "name": "",
+      "quantities": [],
+      "id": 4
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit } from '@angular/core';
+
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 
@@ -13,6 +14,10 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 export class AppComponent implements OnInit,AfterViewInit{
   title = 'mean-stack-crud-app';
   show:boolean=false;
+
+ myname:string="sanak"
+
+
   date: Date;
   time: any;
   setDob: any;
@@ -21,9 +26,18 @@ constructor(private ngxService: NgxUiLoaderService,
   private changeDetect:ChangeDetectorRef
   ){}
    ngOnInit(){
-
+console.log(
+this.myname.bold())
+// if(this.myname.includes('a')){
+//   alert("2")
+// }
+// else{
+//   alert("no")
+// }
     
-    // this.setDob = datePipe.transform(this.date, 'dd/MM/yyyy');
+console.log(this.myname.indexOf('s'))
+
+// this.setDob = datePipe.transform(this.date, 'dd/MM/yyyy');
     // this.time = this.date.getTime()
 
     setInterval(()=>{

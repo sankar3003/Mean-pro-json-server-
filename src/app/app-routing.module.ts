@@ -16,7 +16,7 @@ import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   // { path: '', pathMatch: 'full', redirectTo: 'create-employee' },
-  { path: '', pathMatch: 'full', redirectTo: 'login' },
+  // { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'create-employee', component: EmployeeCreateComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

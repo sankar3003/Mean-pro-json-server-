@@ -5,12 +5,39 @@ import { JsonService } from '../service/json.service';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../model/user';
 import { ApiService } from '../service/api.service';
+
+import { Url } from '../config';
+
+
+
+
+
+class model{
+username:string;
+password:string
+}
+
+
+
+
+
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css'],
+  providers:[
+    
+  ]
 })
 export class UserComponent implements OnInit {
+
+username:string;
+password:string;
+
+userModel= new model;
+
+
 form:User={
   id:null,
   confirmPassword: null,
@@ -26,11 +53,17 @@ form:User={
     private jsonService:JsonService,
 private apiService: ApiService,
 
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    
+
   ) { }
 
   ngOnInit() {
-    
+
+
+console.log(Url.name);
+
+
     this.getUsers()
   }
   getUsers(){
@@ -120,5 +153,13 @@ this.apiService.getById(id).subscribe((res:any)=>{
         this.markFormGroupTouched(control);
       }
     });
+  }
+}
+export class Car{
+  model:string;
+  color:string
+  constructor (model,color){
+    this.model=model,
+    this.color=color
   }
 }

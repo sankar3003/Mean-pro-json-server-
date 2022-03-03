@@ -28,6 +28,7 @@ import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
 import { FocusDirective } from './directives/focus.directive';
 import { ForgotPasswordComponent } from './core/forgot-password/forgot-password.component';
 import { ResetrPasswordComponent } from './core/resetr-password/resetr-password.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
  
@@ -62,8 +63,8 @@ import { ResetrPasswordComponent } from './core/resetr-password/resetr-password.
     ToastrModule.forRoot(),
     
     NgxUiLoaderModule,
-    PasswordStrengthMeterModule
-
+    PasswordStrengthMeterModule,
+NgxPaginationModule
 
   ], schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [ApiService,

@@ -30,7 +30,7 @@ employeeRoute.route('/').get((req, res) => {
 })
 
 // Get single employee
-employeeRoute.route('/read/:id').get((req, res) => {
+employeeRoute.route('/readc/:id').get((req, res) => {
   Employee.findById(req.params.id, (error, data) => {
     if (error) {
       return next(error)
